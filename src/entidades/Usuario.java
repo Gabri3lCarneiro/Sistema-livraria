@@ -11,7 +11,7 @@ public class Usuario {
 	private String endereco;
 	private Date dataDeNascimento;
 	
-	List<Livro> livrosReservados = new ArrayList();
+	public List<Livro> livrosReservados = new ArrayList();
 	
 	
 	public Usuario(String nome, String cpf, String endereco, Date dataDeNascimento) {
@@ -48,9 +48,16 @@ public class Usuario {
 		return dataDeNascimento;
 	}
 
-	public void livrosReservados(Livro livro) {
+	public void livrosEmRerva(Livro livro) {
 		livrosReservados.add(livro);
 	}
-	
-	
+
+
+	public String livrosRervados() {
+		for(Livro livro: livrosReservados ){
+			return livro.toString();
+		}
+		return null;
+	}
+
 }

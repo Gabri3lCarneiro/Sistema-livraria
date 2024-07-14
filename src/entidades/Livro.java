@@ -11,7 +11,7 @@ public class Livro {
 	private Date dataDePubliicacao;
 	private String genero;
 	private int classificacaoIndicativa;
-	private Estatus estatus;
+	public Estatus estatus;
 	
 	
 	public Livro(String nome, String autor, Date dataDePubliicacao, String genero, int classificacaoIndicativa,Estatus estatus) {
@@ -51,11 +51,35 @@ public class Livro {
 	}
 
 
-	public void setEstatus(Estatus estatus) {
-		this.estatus = estatus;
+	public Estatus setEstatus(String estatus) {
+		return this.estatus = Estatus.valueOf(estatus);
 	}
 	
 	
+	@SuppressWarnings("unlikely-arg-type")
+	public void mudancaDeEstatus(Livro livro, Estatus estatus){
+		if(livro.estatus.equals("RESERVADO")) {
+		livro.setEstatus("DISPONIVEL") ;
+		}
+		else{
+			livro.setEstatus("RESERVADO");
+		}
+	}
+
+
+	@Override
+	public String toString() {
+		return "Nome:" + nome + "\n"
+		+ "Autor: " + autor + "\n" 
+		+ "Data de publiicacao: " + dataDePubliicacao  + "\n" 
+		+ "Genero:"+ genero + "\n" 
+		+ "Classificacao indicativa: " + classificacaoIndicativa + "\n"
+		+ "Estatus: " + estatus + "\n";
+	}
 	
+
+	
+
+
 	
 }
