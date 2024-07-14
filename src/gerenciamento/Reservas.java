@@ -5,6 +5,7 @@ import java.util.List;
 
 import entidades.Livro;
 import entidades.Usuario;
+import entidades.enums.Estatus;
 
 public class Reservas {
 
@@ -22,10 +23,15 @@ public class Reservas {
 
 
 
-	private void emprestimo(Livro livro, Usuario usuario) {
+	private void emprestimo(Livro livro, Usuario usuario, Estatus estatus) {
+		if(livro.getEstatus().RESERVADO != null) {
+			throw new execoesDeReservas("Livro ja está reservado");
+		}
+		if(usuario.livrosReservados.size() >= 2){
+			throw new execoesDeReservas("Usuario atingil o limite de reservas "  + usuario.livrosRervados());
+		}
 		reservado.add(livro);
-		livraria.remocaoDeLivros(livro);
-		
+		livro.mudancaDeEstatus(livro, estatus);
 	}
 	
 	private void devolucao(Livro livro, Usuario usuario) {
