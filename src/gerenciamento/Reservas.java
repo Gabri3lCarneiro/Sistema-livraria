@@ -23,20 +23,21 @@ public class Reservas {
 
 
 
-	private void emprestimo(Livro livro, Usuario usuario, Estatus estatus) {
-		if(livro.getEstatus().RESERVADO != null) {
-			throw new execoesDeReservas("Livro ja está reservado");
+	public void emprestimo(Livro livro, Usuario usuario) {
+		if(livro.getEstatus() != Estatus.DISPONIVEL) {
+			throw new execoesGerenciamento("Livro ja está reservado");
 		}
 		if(usuario.livrosReservados.size() >= 2){
-			throw new execoesDeReservas("Usuario atingil o limite de reservas "  + usuario.livrosRervados());
+			throw new execoesGerenciamento("Usuario atingil o limite de reservas "  + usuario.livrosRervados());
 		}
 		reservado.add(livro);
-		livro.mudancaDeEstatus(livro, estatus);
+		livro.mudancaDeEstatus(livro);
+		usuario.livrosReservados.add(livro);
 	}
 	
-	private void devolucao(Livro livro, Usuario usuario) {
+	public void devolucao(Livro livro, Usuario usuario) {
 		reservado.remove(livro);
-		livraria.cadastroDeLivros(livro);
+		usuario.livrosReservados.remove(livro);
 		
 	}
 	

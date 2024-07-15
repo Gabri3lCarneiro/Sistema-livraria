@@ -55,9 +55,19 @@ public class Usuario {
 
 	public String livrosRervados() {
 		for(Livro livro: livrosReservados ){
-			return livro.toString();
+			return livro.toStringUsuario();
 		}
 		return null;
+	}
+
+
+	public String toString(){
+		return "Nome: " + this.nome + "\n"
+		+ "CPF: " + this.cpf + "\n"
+		+ "Endereco: " + this.endereco + "\n"
+		+ "Data de Nascimento: " + this.dataDeNascimento + "\n"
+		+ "Livros reservados: " + livrosRervados() + "\n";
+
 	}
 
 }
