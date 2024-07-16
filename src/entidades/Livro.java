@@ -6,21 +6,24 @@ import entidades.enums.Estatus;
 
 public class Livro {
 
-	private String nome;
+	public static final char[] toStringLivraria = null;
+    private String nome;
 	private String autor;
 	private Date dataDePubliicacao;
 	private String genero;
 	private int classificacaoIndicativa;
+	private final int id;
 	public Estatus estatus;
 	
 	
-	public Livro(String nome, String autor, Date dataDePubliicacao, String genero, int classificacaoIndicativa) {
+	public Livro(String nome, String autor, Date dataDePubliicacao, String genero, int classificacaoIndicativa, int id) {
 		
 		this.nome = nome;
 		this.autor = autor;
 		this.dataDePubliicacao = dataDePubliicacao;
 		this.genero = genero;
 		this.classificacaoIndicativa = classificacaoIndicativa;
+		this.id =id;
 		this.estatus = estatus.DISPONIVEL;
 		
 	}
@@ -50,11 +53,17 @@ public class Livro {
 		return estatus;
 	}
 
+	public int getId() {
+		return id;
+	}
 
 	public Estatus setEstatus(String estatus) {
 		return this.estatus = Estatus.valueOf(estatus);
 	}
 	
+	public Livro teste(Livro livro){
+		return livro;
+	}
 	
 	@SuppressWarnings("unlikely-arg-type")
 	public void mudancaDeEstatus(Livro livro){
