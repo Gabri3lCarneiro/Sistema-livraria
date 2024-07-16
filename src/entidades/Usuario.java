@@ -6,8 +6,9 @@ import java.util.List;
 
 public class Usuario {
 
+	
 	private String nome;
-	private String cpf;
+	private final String cpf;
 	private String endereco;
 	private Date dataDeNascimento;
 	
@@ -53,11 +54,11 @@ public class Usuario {
 	}
 
 
-	public String livrosRervados() {
+	public void imprimitLivrosEmRerva() {
 		for(Livro livro: livrosReservados ){
-			return livro.toStringUsuario();
+			System.out.println(livro.toStringUsuario());
 		}
-		return null;
+		
 	}
 
 
@@ -65,9 +66,8 @@ public class Usuario {
 		return "Nome: " + this.nome + "\n"
 		+ "CPF: " + this.cpf + "\n"
 		+ "Endereco: " + this.endereco + "\n"
-		+ "Data de Nascimento: " + this.dataDeNascimento + "\n"
-		+ "Livros reservados: " + livrosRervados() + "\n";
-
+		 + "Data de Nascimento: " + this.dataDeNascimento + "\n";
+		
 	}
 
 }
