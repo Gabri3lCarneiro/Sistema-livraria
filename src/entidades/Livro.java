@@ -12,11 +12,11 @@ public class Livro {
 	private Date dataDePubliicacao;
 	private String genero;
 	private int classificacaoIndicativa;
-	private final int id;
+	private final String id;
 	public Estatus estatus;
 	
 	
-	public Livro(String nome, String autor, Date dataDePubliicacao, String genero, int classificacaoIndicativa, int id) {
+	public Livro(String nome, String autor, Date dataDePubliicacao, String genero, int classificacaoIndicativa, String id) {
 		
 		this.nome = nome;
 		this.autor = autor;
@@ -53,7 +53,7 @@ public class Livro {
 		return estatus;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 

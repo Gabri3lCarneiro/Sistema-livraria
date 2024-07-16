@@ -12,11 +12,10 @@ public class Usuario {
 	private String endereco;
 	private Date dataDeNascimento;
 	
-	public List<Livro> livrosReservados = new ArrayList();
+	 public List<Livro> livrosReservados = new ArrayList();
 	
 	
 	public Usuario(String nome, String cpf, String endereco, Date dataDeNascimento) {
-		
 		this.nome = nome;
 		this.cpf = cpf;
 		this.endereco = endereco;
@@ -60,7 +59,6 @@ public class Usuario {
 		}
 		
 	}
-
 
 	public String toString(){
 		return "Nome: " + this.nome + "\n"
