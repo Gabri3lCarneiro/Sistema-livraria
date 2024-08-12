@@ -4,8 +4,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-import entidades.Livro;
-import entidades.Usuario;
+import modelo.entidades.Livro;
+import modelo.entidades.Usuario;
 
 public class Livraria {
 
@@ -16,7 +16,7 @@ public class Livraria {
 	
 	public void cadastroDeLivros(Livro livro) {
 		if (livro.getId().equals(acharLivroID((livro.getId())))) {
-			throw new execoesGerenciamento("ID ja existe");
+			throw new ExecoesGerenciamento("ID ja existe");
 		}
 		acervoDeLivros.add(livro);
 		
@@ -25,7 +25,7 @@ public class Livraria {
 
 	public void remocaoDeLivros(String id) {
 		if(acharLivro(id) == null){
-			throw new execoesGerenciamento("ID invalido, livro nao encontrado");
+			throw new ExecoesGerenciamento("ID invalido, livro nao encontrado");
 		}
 		acervoDeLivros.remove(acharLivro(id));
 	}
@@ -53,7 +53,7 @@ public class Livraria {
 
 	public void imprimirLivro(String id){
 		if (acharLivro(id) == null) {
-			throw new execoesGerenciamento("ID invalido, livro nao encontrado");
+			throw new ExecoesGerenciamento("ID invalido, livro nao encontrado");
 		}
 		System.out.println(acharLivro(id).toStringLivraria());
 		
@@ -62,7 +62,7 @@ public class Livraria {
 	
 	public  void imprimirAcervo(){
 		if (acervoDeLivros.size() == 0) {
-			throw new execoesGerenciamento("Nenhum livro cadastrado");
+			throw new ExecoesGerenciamento("Nenhum livro cadastrado");
 		}
 		for(Livro livro : acervoDeLivros){
 			System.out.println(Livro.toStringLivraria);

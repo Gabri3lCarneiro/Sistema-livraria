@@ -5,12 +5,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import entidades.Livro;
-import entidades.Usuario;
-import gerenciamento.CadastroDeUsuarios;
+
+import gerenciamento.GerenciamentoUsuarios;
 import gerenciamento.Livraria;
 import gerenciamento.Reservas;
-import gerenciamento.execoesGerenciamento;
+import gerenciamento.ExecoesGerenciamento;
+import modelo.entidades.Livro;
+import modelo.entidades.Usuario;
 
 public class Programa {
 
@@ -19,7 +20,7 @@ public class Programa {
 		Scanner sc = new Scanner(System.in);
 		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
 		Livraria livraria = new Livraria();
-		CadastroDeUsuarios gerenciamentoUsuarios = new CadastroDeUsuarios();
+		GerenciamentoUsuarios gerenciamentoUsuarios = new GerenciamentoUsuarios();
 		Reservas gerenciamentoReservas = new Reservas();
 
 		String nome;
@@ -139,7 +140,7 @@ public class Programa {
 		}
 	}
 
-catch(execoesGerenciamento e){
+catch(ExecoesGerenciamento e){
 	System.out.println("Erro: " + e.getMessage());
 }
 catch(ParseException e){

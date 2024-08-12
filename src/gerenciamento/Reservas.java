@@ -3,9 +3,9 @@ package gerenciamento;
 import java.util.ArrayList;
 import java.util.List;
 
-import entidades.Livro;
-import entidades.Usuario;
 import entidades.enums.Estatus;
+import modelo.entidades.Livro;
+import modelo.entidades.Usuario;
 
 public class Reservas {
 
@@ -29,10 +29,10 @@ public class Reservas {
 
 	public void emprestimo(Livro livro, Usuario usuario) {
 		if(livro.getEstatus() != Estatus.DISPONIVEL) {
-			throw new execoesGerenciamento("Livro ja está reservado ");
+			throw new ExecoesGerenciamento("Livro ja está reservado ");
 		}
 		if(usuario.livrosReservados.size() >= 2){
-			throw new execoesGerenciamento("Usuario atingiu o limite de reservas ");
+			throw new ExecoesGerenciamento("Usuario atingiu o limite de reservas ");
 		}
 		reservado.add(livro);
 		livro.mudancaDeEstatus(livro);

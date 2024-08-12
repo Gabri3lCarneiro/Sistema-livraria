@@ -1,4 +1,4 @@
-package entidades;
+package modelo.entidades;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,7 +18,7 @@ public class Usuario {
 	public Usuario(String nome, String cpf, String endereco, Date dataDeNascimento) {
 		this.nome = nome;
 		this.cpf = cpf;
-		this.endereco = endereco;
+		this.endereco = endereco; 
 		this.dataDeNascimento = dataDeNascimento;
 		
 	}

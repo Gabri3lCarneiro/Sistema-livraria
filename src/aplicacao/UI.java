@@ -1,7 +1,7 @@
 package aplicacao;
 
-import entidades.Livro;
-import entidades.Usuario;
+import modelo.entidades.Livro;
+import modelo.entidades.Usuario;
 
 public class UI {
 

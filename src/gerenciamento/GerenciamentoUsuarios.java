@@ -3,10 +3,10 @@ package gerenciamento;
 import java.util.ArrayList;
 import java.util.List;
 
-import entidades.Livro;
-import entidades.Usuario;
+import modelo.entidades.Livro;
+import modelo.entidades.Usuario;
 
-public class CadastroDeUsuarios {
+public class GerenciamentoUsuarios {
 
 	private Usuario usuaio;
 	
@@ -35,14 +35,14 @@ public class CadastroDeUsuarios {
 	
 	public void cadastrarUsuario(Usuario usuario) {
 		if(usuario.getCpf().equals(acharUsuarioCPF(usuario.getCpf()))){
-			throw new execoesGerenciamento("CPF ja cadastrado");
+			throw new ExecoesGerenciamento("CPF ja cadastrado");
 		}
 		usuarios.add(usuario);
 	}
 	
 	public void remocaoDeUsuario(String cpf) {
 		if(acharUsuario(cpf) == null){
-			throw new execoesGerenciamento("CPF nao encontrado");
+			throw new ExecoesGerenciamento("CPF nao encontrado");
 		}
 		acharUsuario(cpf);
 		usuarios.remove(acharUsuario(cpf));
