@@ -11,18 +11,18 @@ public class Livro {
 	private String autor;
 	private Date dataDePubliicacao;
 	private String genero;
-	private Integer id;
+	private String ISBN;
 	public Estatus estatus;
 	
 	
-	public Livro(String nome, String autor, Date dataDePubliicacao, String genero, Integer id) {
+	public Livro(String nome, String autor, Date dataDePubliicacao, String genero, String id, Estatus estatus) {
 		
 		this.nome = nome;
 		this.autor = autor;
 		this.dataDePubliicacao = dataDePubliicacao;
 		this.genero = genero;
-		this.id =id;
-		this.estatus = estatus.DISPONIVEL;
+		this.ISBN =id;
+		this.estatus = estatus;
 		
 	}
 
@@ -51,16 +51,16 @@ public class Livro {
 		return estatus;
 	}
 
-	public Integer getId() {
-		return id;
+	public String getId() {
+		return ISBN;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId(String id) {
+		this.ISBN = id;
 	}
 
 	public Estatus setEstatus(String estatus) {
-		return this.estatus = Estatus.valueOf(estatus);
+		return this.estatus = Estatus.valueOf(estatus.toUpperCase());
 	}
 
 	public void setNome(String nome) {
@@ -101,6 +101,13 @@ public class Livro {
 
 
 	
+	
+	@Override
+	public String toString() {
+		return "Livro [nome=" + nome + ", autor=" + autor + ", dataDePubliicacao=" + dataDePubliicacao + ", genero="
+				+ genero + ", ISBN=" + ISBN + ", estatus=" + estatus + "]";
+	}
+
 	public String toStringLivraria() {
 		return "Nome:" + nome + "\n"
 		+ "Autor: " + autor + "\n" 
@@ -120,7 +127,7 @@ public class Livro {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(ISBN);
 	}
 
 	@Override
@@ -132,7 +139,7 @@ public class Livro {
 		if (getClass() != obj.getClass())
 			return false;
 		Livro other = (Livro) obj;
-		return Objects.equals(id, other.id);
+		return Objects.equals(ISBN, other.ISBN);
 	}
 	
 
