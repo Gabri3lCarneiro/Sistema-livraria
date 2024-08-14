@@ -11,7 +11,6 @@ public class Reservas {
 
 	private Livro livro;
 	private Usuario usuario;
-	
 	private Livraria livraria;
 	
 	List<Livro> reservado = new ArrayList();
@@ -22,13 +21,13 @@ public class Reservas {
 	}
 
 	public Reservas(){
-		
 	}
-
 	
-
+	
+	
 	public void emprestimo(Livro livro, Usuario usuario) {
-		if(livro.getEstatus() != Estatus.DISPONIVEL) {
+		
+		if(livro.getEstatus() != Estatus.DISPONÍVEL) {
 			throw new ExecoesGerenciamento("Livro ja está reservado ");
 		}
 		if(usuario.livrosReservados.size() >= 2){

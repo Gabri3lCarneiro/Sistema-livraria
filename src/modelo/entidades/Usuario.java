@@ -8,21 +8,32 @@ public class Usuario {
 
 	
 	private String nome;
-	private final String cpf;
-	private String endereco;
+	private String cpf;
+	private String email;
 	private Date dataDeNascimento;
 	
 	 public List<Livro> livrosReservados = new ArrayList();
 	
 	
-	public Usuario(String nome, String cpf, String endereco, Date dataDeNascimento) {
+	public Usuario(String nome, String cpf, String email, Date dataDeNascimento) {
 		this.nome = nome;
 		this.cpf = cpf;
-		this.endereco = endereco; 
+		this.email = email; 
 		this.dataDeNascimento = dataDeNascimento;
 		
 	}
 
+	public Usuario() {
+		
+	}
+	
+	public void setDataDeNascimento(Date dataDeNascimento) {
+		this.dataDeNascimento = dataDeNascimento;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
 	public String getNome() {
 		return nome;
@@ -36,12 +47,12 @@ public class Usuario {
 		return cpf;
 	}
 
-	public String getEndereco() {
-		return endereco;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+	public void setEmail(String endereco) {
+		this.email = endereco;
 	}
 
 	public Date getDataDeNascimento() {
@@ -63,7 +74,7 @@ public class Usuario {
 	public String toString(){
 		return "Nome: " + this.nome + "\n"
 		+ "CPF: " + this.cpf + "\n"
-		+ "Endereco: " + this.endereco + "\n"
+		+ "Email: " + this.email + "\n"
 		 + "Data de Nascimento: " + this.dataDeNascimento + "\n";
 		
 	}
