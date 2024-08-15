@@ -1,12 +1,19 @@
 package aplicacao;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
-import db.LivrariaDao;
 import entidades.enums.Estatus;
-import modelo.dao.impl.DaoFabrica;
+import modelo.dao.DaoFabrica;
+import modelo.dao.LivrariaDao;
+import modelo.dao.ReservasDao;
+import modelo.dao.UsuarioDao;
+import modelo.dao.impl.ReservasDaoJDBC;
 import modelo.entidades.Livro;
+import modelo.entidades.Reservas;
+import modelo.entidades.Usuario;
 
 public class test {
 
@@ -28,6 +35,29 @@ public class test {
 		
 		livrariaDao.excluirPorId("123");
 		
+		System.out.println("==================================");
+		
+		UsuarioDao usuarioDao = DaoFabrica.criarUsuarioDao();
+		Usuario usuario = usuarioDao.encontrarUsuario("1");
+		System.out.println(usuario);
+		System.out.println();
+		
+		Usuario usuario1 = new Usuario("fag", "123456", "lasidjghGgamail", new Date() );
+		//usuarioDao.cadastrarUsuairo(usuario1);
+		System.out.println("Deu certo");
+		System.out.println();
+		
+		//usuarioDao.removerUsuario(usuario1.getCpf());
+		//System.out.println("Deu certo");
+		System.out.println();
+		
+		List<Usuario> list2 = usuarioDao.encontrarTodos();
+		list2.forEach(System.out::println);
+		
+
+		ReservasDao reservasDao = DaoFabrica.criarReservasDao();
+		Reservas rev = new Reservas(new Date(),new Date());
+		reservasDao.emprestimo(usuarioDao.encontrarUsuario("1"), livrariaDao.encontrarPorId("9788542221060"), rev);
 	}
 
 }

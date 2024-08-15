@@ -8,9 +8,9 @@ import java.util.Scanner;
 
 import gerenciamento.GerenciamentoUsuarios;
 import gerenciamento.Livraria;
-import gerenciamento.Reservas;
 import gerenciamento.ExecoesGerenciamento;
 import modelo.entidades.Livro;
+import modelo.entidades.Reservas;
 import modelo.entidades.Usuario;
 
 public class Programa {

@@ -13,7 +13,7 @@ import com.mysql.cj.xdevapi.Statement;
 
 import db.DB;
 import db.DbException;
-import db.UsuarioDao;
+import modelo.dao.UsuarioDao;
 import modelo.entidades.Livro;
 import modelo.entidades.Usuario;
 
@@ -32,8 +32,10 @@ public class UsuarioDaoJDBC implements UsuarioDao {
 		PreparedStatement st = null;
 
 		try {
-			st = conn.prepareStatement("INSERT INTO usuarios " + "(Cpf, Name, Email, Aniversario,) " + "VALUES "
-					+ "(?, ?, ?, ?) " + java.sql.Statement.RETURN_GENERATED_KEYS);
+			st = conn.prepareStatement("INSERT INTO usuarios (Cpf, Name, Email, Aniversario) " 
+		            + "VALUES "
+					+ "(?, ?, ?, ?) " ,
+					 java.sql.Statement.RETURN_GENERATED_KEYS);
 
 			st.setString(1, obj.getCpf());
 			st.setString(2, obj.getNome());

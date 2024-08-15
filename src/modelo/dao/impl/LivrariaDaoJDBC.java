@@ -11,7 +11,7 @@ import java.util.Map;
 
 import db.DB;
 import db.DbException;
-import db.LivrariaDao;
+import modelo.dao.LivrariaDao;
 import modelo.entidades.Livro;
 
 public class LivrariaDaoJDBC implements LivrariaDao{
@@ -33,7 +33,7 @@ public class LivrariaDaoJDBC implements LivrariaDao{
 		+ "VALUES " 
 		+ "(?, ?, ?, ?, ?, ?) ", 
 		java.sql.Statement.RETURN_GENERATED_KEYS);
-			st.setString(1, obj.getId());
+			st.setString(1, obj.getISBN());
 			st.setString(2, obj.getNome());
 			st.setString(3, obj.getAutor());
 			st.setDate(4,  new java.sql.Date(obj.getDataDePubliicacao().getTime()));
@@ -45,8 +45,8 @@ public class LivrariaDaoJDBC implements LivrariaDao{
 			if(rowsAffected > 0) {
 				ResultSet rs = st.getGeneratedKeys();
 				if(rs.next()) {
-					String id  = rs.getString(1);
-					obj.setId(id);
+					String ISBN  = rs.getString(1);
+					obj.setISBN(ISBN);
 				}
 				DB.closeResultSet(rs);
 			}
@@ -91,7 +91,7 @@ public class LivrariaDaoJDBC implements LivrariaDao{
 		obj.setAutor(rs.getString("Autor"));
 		obj.setDataDePubliicacao(rs.getDate("Data_Publicacao"));
 		obj.setGenero(rs.getString("Genero"));
-		obj.setId(rs.getString("ISBN"));
+		obj.setISBN(rs.getString("ISBN"));
 		obj.setEstatus(rs.getString("Status"));
 		return obj;
 	}

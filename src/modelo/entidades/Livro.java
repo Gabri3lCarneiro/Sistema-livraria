@@ -15,13 +15,13 @@ public class Livro {
 	public Estatus estatus;
 	
 	
-	public Livro(String nome, String autor, Date dataDePubliicacao, String genero, String id, Estatus estatus) {
+	public Livro(String nome, String autor, Date dataDePubliicacao, String genero, String ISBN, Estatus estatus) {
 		
 		this.nome = nome;
 		this.autor = autor;
 		this.dataDePubliicacao = dataDePubliicacao;
 		this.genero = genero;
-		this.ISBN =id;
+		this.ISBN =ISBN;
 		this.estatus = estatus;
 		
 	}
@@ -51,12 +51,12 @@ public class Livro {
 		return estatus;
 	}
 
-	public String getId() {
+	public String getISBN() {
 		return ISBN;
 	}
 
-	public void setId(String id) {
-		this.ISBN = id;
+	public void setISBN(String ISBN) {
+		this.ISBN = ISBN;
 	}
 
 	public Estatus setEstatus(String estatus) {

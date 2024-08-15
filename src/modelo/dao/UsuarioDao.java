@@ -1,4 +1,4 @@
-package db;
+package modelo.dao;
 
 import java.util.List;
 
