@@ -23,9 +23,6 @@ public class ReservasDaoJDBC implements ReservasDao {
 		this.conn = conn;
 	}
 	
-
-
-
 	@Override
 	public void emprestimo(Usuario usuario, Livro livro, Reservas reservas) {
 		
@@ -66,9 +63,29 @@ public class ReservasDaoJDBC implements ReservasDao {
 
 	@Override
 	public void devolucao(Usuario usuario, Livro livro, Reservas reservas) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			st = conn.prepareStatement("UPDATE livraria SET status = 'DISPONÍVEL' WHERE ISBN = ? ");
+			
+			st.setString(1, livro.getISBN());
+			st.executeUpdate();
+			usuario.livrosReservados.remove(livro);
+			livro.setEstatus(Estatus.DISPONÍVEL);
+			
+			st = conn.prepareStatement("DELETE FROM reservas WHERE ISBN_livraria = ?");
+			st.setString(1, livro.getISBN());
+			
+			st.executeUpdate();
+				
+		} 
+		catch (SQLException e) {
+			throw new DbException("Erro !" + e.getMessage());
+		}
+		finally {
+			DB.closeStatement(st);
 		
 	}
 
-	
+	}
 }
